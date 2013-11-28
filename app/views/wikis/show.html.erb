@@ -1,0 +1,10 @@
+<h1><%= markdown @wiki.title %></h1>
+  <small>
+    <p><i>Updated about <%= time_ago_in_words(@wiki.updated_at) %> ago</i></p>
+  </small>
+<%= markdown @wiki.body %>
+
+<%= link_to "Edit Wiki", edit_wiki_path(@wiki) %>
+<p>
+<%= link_to "Add Collaborator", add_collaborators_wiki_path(@wiki) %>
+</p>

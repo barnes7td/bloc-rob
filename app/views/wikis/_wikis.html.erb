@@ -1,0 +1,25 @@
+<table class="sortable">
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>updated_at</th>
+      <th>Options</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @wikis.each do |wiki| %>
+      <tr id="<%= dom_id(wiki) %>">
+        <td>
+          <%= wiki.title %>   
+        </td>
+        <td>
+          <i><%= time_ago_in_words(wiki.updated_at) %> ago</i>
+        </td>
+        <td>
+          <%= link_to "Edit", edit_wiki_path(wiki) %> | 
+          <%= link_to "Delete", wiki_path(wiki), method: :delete, data: { confirm: "Are you sure you want to delete the Wiki: '#{wiki.title}'"},remote: true %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
